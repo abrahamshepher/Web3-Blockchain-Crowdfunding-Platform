@@ -5,11 +5,14 @@ import ReactDOM from 'react-dom/client';
 
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import { BrowserRouter as Router } from "react-router-dom";
+import { StateContextProvider } from "./context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThirdwebProvider desiredChainId={ChainId.BinanceSmartChainTestnet}>
     <Router>
-      <App />
+      <StateContextProvider>
+        <App />
+      </StateContextProvider>
     </Router>
   </ThirdwebProvider>
 );
